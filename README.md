@@ -10,7 +10,7 @@ Flutter Multi-platform allows developers to unleash their app to run on the wide
 
 # Blog post
 
-https://medium.com/p/36cfbafe46ab/edit
+https://medium.com/mindful-engineering/flutter-adding-a-support-for-multi-platform-36cfbafe46ab
 
 # LICENSE!
 
