@@ -1,16 +1,21 @@
-# flutter_multiplatform_sample
+# Flutter MultiPlatform
 
-A new Flutter application.
+Flutter Multi-platform allows developers to unleash their app to run on the wide variety of different platforms with little or no change.
 
-## Getting Started
+## Preview
 
-This project is a starting point for a Flutter application.
+![alt tag](https://github.com/Mindinventory/FlutterMultiPlatformSample/blob/main/media/mobile-platforms.png)
+![alt tag](https://github.com/Mindinventory/FlutterMultiPlatformSample/blob/main/media/web.png)
+![alt tag](https://github.com/Mindinventory/FlutterMultiPlatformSample/blob/main/media/desktop-macOS.png)
 
-A few resources to get you started if this is your first Flutter project:
+# Blog post
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+https://medium.com/p/36cfbafe46ab/edit
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# LICENSE!
+
+Flutter MultiPlatform is [MIT-licensed](/LICENSE).
+
+# Let us know!
+
+We’d be really happy if you send us links to your projects where you use our component. Just send an email to sales@mindinventory.com And do let us know if you have any questions or suggestion regarding our work.
