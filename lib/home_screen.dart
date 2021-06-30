@@ -1,7 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_multiplatform_sample/product_screen.dart';
 
 import 'utils/color_utils.dart';
 import 'utils/dimens.dart';
@@ -197,29 +196,34 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _productItem() {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 15),
-      padding: EdgeInsets.all(10.0),
-      width: 250,
-      child: Column(
-        children: [
-          _productImageWithLikeButton(),
-          Padding(
-            padding: const EdgeInsets.only(top: 8.0),
-            child: TitleText(label: 'High neck middle dress'),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5.0),
-            child: CreamSmallText(label: 'VEROMODA'),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5.0),
-            child: TitleText(
-              label: '\$299.99',
-              fontWeight: fontWeightExtraBold,
+    return InkWell(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => ProductScreen()));
+      },
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 15),
+        padding: EdgeInsets.all(10.0),
+        width: 250,
+        child: Column(
+          children: [
+            _productImageWithLikeButton(),
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: TitleText(label: 'High neck middle dress'),
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.only(top: 5.0),
+              child: CreamSmallText(label: 'VEROMODA'),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 5.0),
+              child: TitleText(
+                label: '\$299.99',
+                fontWeight: fontWeightExtraBold,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

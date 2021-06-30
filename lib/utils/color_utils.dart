@@ -7,6 +7,8 @@ const Color subtitleTextColor = Color(0xFF1A0B29);
 const Color creamTitleTextColor = Color(0xFFCDAF8E);
 const Color hintTextColor = Color(0xFFCFCDCC);
 const Color productImageBackColor = Color(0xFFE8F3F0);
+const Color white = Color(0xFFFFFFFF);
+const Color productDetailImageBackColor = Color(0xFF5F6A6B);
 
 
 

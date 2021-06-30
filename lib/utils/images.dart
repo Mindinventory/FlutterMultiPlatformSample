@@ -10,3 +10,12 @@ const icLike = 'assets/images/ic_like.png';
 const icProduct1 = 'assets/images/ic_product_1.png';
 const icProduct2 = 'assets/images/ic_product_2.png';
 const icFab= 'assets/images/ic_fab.png';
+const icAddToCart= 'assets/images/ic_add_to_cart.png';
+const icBlackBackArrow= 'assets/images/ic_black_back_arrow.png';
+const icCubeView= 'assets/images/ic_cube_view.png';
+const icProductDetail= 'assets/images/ic_product_detail.png';
+const icProductDetailImage1= 'assets/images/ic_product_detail_image_1.png';
+const icProductDetailImage2= 'assets/images/ic_product_detail_image_2.png';
+const icProductDetailImage3= 'assets/images/ic_product_detail_image_3.png';
+const icRatings= 'assets/images/ic_ratings.png';
+

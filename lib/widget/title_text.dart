@@ -7,7 +7,9 @@ class TitleText extends StatelessWidget {
   final String label;
   final int maxLine;
 final FontWeight fontWeight;
-  TitleText({this.label, this.maxLine = 1, this.fontWeight=fontWeightSemiBold});
+final double fontSize;
+final Color fontColor;
+  TitleText({this.label, this.maxLine = 1, this.fontWeight=fontWeightSemiBold, this.fontSize=fontMedium, this.fontColor=subtitleTextColor});
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +19,8 @@ final FontWeight fontWeight;
         maxLines: maxLine,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(
-          color: subtitleTextColor,
-          fontSize: fontMedium,
+          color: fontColor,
+          fontSize: fontSize,
           fontWeight: fontWeight,
           letterSpacing: 0.28,
         ),
