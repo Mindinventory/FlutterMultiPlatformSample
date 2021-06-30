@@ -23,13 +23,13 @@ class _ProductScreenState extends State<ProductScreen> {
         child: Stack(
           children: [
             _productImage(),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                _appBar(),
-                Spacer(),
-                _productDetailCard(),
-              ],
+            _appBar(),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: FractionallySizedBox(
+                heightFactor: 0.53,
+                child: _productDetailCard(),
+              ),
             ),
           ],
         ),
@@ -71,27 +71,36 @@ class _ProductScreenState extends State<ProductScreen> {
   }
 
   Widget _productDetailCard() {
-    return Container(
-      height: MediaQuery.of(context).size.height / 2.30,
-      padding: EdgeInsets.symmetric(horizontal: 25),
-      width: double.infinity,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40)),
-        color: white,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 25.0),
-            child: CreamSmallText(label: 'ZARA'),
-          ),
-          _productNameAndPrice(),
-          _rattingBar(),
-          _descriptionText(),
-          _colorSectionText(),
-          _addToCartButton(),
-        ],
+    return SizedBox.expand(
+      child: DraggableScrollableSheet(
+        initialChildSize: 1,
+        builder: (context, scrollController) {
+          return Container(
+            padding: EdgeInsets.symmetric(horizontal: 25),
+            width: double.infinity,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40)),
+              color: white,
+            ),
+            child: SingleChildScrollView(
+              controller: scrollController,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 25.0),
+                    child: CreamSmallText(label: 'ZARA'),
+                  ),
+                  _productNameAndPrice(),
+                  _rattingBar(),
+                  _descriptionText(),
+                  _colorSectionText(),
+                  _addToCartButton(),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }
