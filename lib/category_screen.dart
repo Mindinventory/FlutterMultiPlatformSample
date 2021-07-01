@@ -20,25 +20,6 @@ class CatModel {
   CatModel({this.image, this.catName, this.brandName, this.price});
 }
 
-const List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
-  StaggeredTile.count(1, 1.5),
-  StaggeredTile.count(1, 1.95),
-  StaggeredTile.count(1, 1.8),
-  StaggeredTile.count(1, 1.6),
-  StaggeredTile.count(1, 1.5),
-  StaggeredTile.count(1, 1.95),
-  StaggeredTile.count(1, 1.8),
-  StaggeredTile.count(1, 1.6),
-  StaggeredTile.count(1, 1.5),
-  StaggeredTile.count(1, 1.95),
-  StaggeredTile.count(1, 1.8),
-  StaggeredTile.count(1, 1.6),
-  StaggeredTile.count(1, 1.5),
-  StaggeredTile.count(1, 1.95),
-  StaggeredTile.count(1, 1.8),
-  StaggeredTile.count(1, 1.6),
-];
-
 class _CategoryScreenState extends State<CategoryScreen> {
   List<CatModel> modelList = [
     CatModel(image: icCatProduct3, brandName: 'Loose fit blazer', catName: 'ZARA', price: '\$899.99'),
@@ -62,15 +43,19 @@ class _CategoryScreenState extends State<CategoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            _appBar(),
-            _categoryInfo(),
-            _filteredCatItem(),
-            _productList(),
-          ],
-        ),
+      body: OrientationBuilder(
+        builder: (context, orientation) {
+          return SafeArea(
+            child: Column(
+              children: [
+                _appBar(),
+                _categoryInfo(),
+                _filteredCatItem(),
+                _productList(orientation),
+              ],
+            ),
+          );
+        },
       ),
     );
   }
@@ -189,7 +174,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
     );
   }
 
-  Widget _productList() {
+  Widget _productList(Orientation orientation) {
+    var _staggeredTiles = _getStaggeredTiles(orientation);
     return Expanded(
       child: Container(
         margin: EdgeInsets.only(top: 15.0, right: 15.0, left: 15.0),
@@ -197,9 +183,9 @@ class _CategoryScreenState extends State<CategoryScreen> {
           staggeredTileBuilder: (index) {
             return _staggeredTiles[index];
           },
-          crossAxisCount: 2,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 12,
+          crossAxisCount: (orientation == Orientation.landscape) ? 5 : 2,
+          crossAxisSpacing: (orientation == Orientation.landscape) ? 30 : 10,
+          mainAxisSpacing: (orientation == Orientation.landscape) ? 32 : 12,
           itemCount: modelList.length,
           itemBuilder: (context, index) {
             return Container(
@@ -258,5 +244,26 @@ class _CategoryScreenState extends State<CategoryScreen> {
         ),
       ),
     );
+  }
+
+  List<StaggeredTile> _getStaggeredTiles(Orientation orientation) {
+    return <StaggeredTile>[
+      StaggeredTile.count(1, 1.5),
+      StaggeredTile.count(1, 1.95),
+      StaggeredTile.count(1, 1.8),
+      StaggeredTile.count(1, 1.6),
+      StaggeredTile.count(1, 1.5),
+      StaggeredTile.count(1, 1.95),
+      StaggeredTile.count(1, 1.8),
+      StaggeredTile.count(1, 1.6),
+      StaggeredTile.count(1, 1.5),
+      StaggeredTile.count(1, 1.95),
+      StaggeredTile.count(1, 1.8),
+      StaggeredTile.count(1, 1.6),
+      StaggeredTile.count(1, 1.5),
+      StaggeredTile.count(1, 1.95),
+      StaggeredTile.count(1, 1.8),
+      StaggeredTile.count(1, 1.6),
+    ];
   }
 }
