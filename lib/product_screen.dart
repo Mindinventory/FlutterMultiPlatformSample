@@ -102,7 +102,7 @@ class _ProductScreenState extends State<ProductScreen> {
                   _rattingBar(),
                   _descriptionText(),
                   _colorSectionText(),
-                  _addToCartButton(),
+                  _addToCartButton(orientation),
                 ],
               ),
             ),
@@ -227,7 +227,7 @@ class _ProductScreenState extends State<ProductScreen> {
     );
   }
 
-  Widget _addToCartButton() {
+  Widget _addToCartButton(Orientation orientation) {
     return Container(
       margin: EdgeInsets.only(top: 12),
       decoration: BoxDecoration(
@@ -240,34 +240,39 @@ class _ProductScreenState extends State<ProductScreen> {
         ],
         color: white,
       ),
-      child: InkWell(
-        onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => CategoryScreen()));
-        },
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(15.0),
-          child: Container(
-            width: double.infinity,
-            height: 60,
-            color: subtitleTextColor,
-            padding: EdgeInsets.symmetric(horizontal: 5.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  icAddToCart,
-                  height: 20,
+      child: Center(
+        child: FractionallySizedBox(
+          widthFactor: (orientation == Orientation.landscape) ? 0.5 : 1,
+          child: InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => CategoryScreen()));
+            },
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15.0),
+              child: Container(
+                width: double.infinity,
+                height: 60,
+                color: subtitleTextColor,
+                padding: EdgeInsets.symmetric(horizontal: 5.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      icAddToCart,
+                      height: 20,
+                    ),
+                    SizedBox(
+                      width: 10.0,
+                    ),
+                    TitleText(
+                      label: 'Add to cart',
+                      fontSize: fontLarger,
+                      fontColor: white,
+                      fontWeight: fontWeightRegular,
+                    )
+                  ],
                 ),
-                SizedBox(
-                  width: 10.0,
-                ),
-                TitleText(
-                  label: 'Add to cart',
-                  fontSize: fontLarger,
-                  fontColor: white,
-                  fontWeight: fontWeightRegular,
-                )
-              ],
+              ),
             ),
           ),
         ),
