@@ -19,20 +19,25 @@ class _ProductScreenState extends State<ProductScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Stack(
-          children: [
-            _productImage(),
-            _appBar(),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: FractionallySizedBox(
-                heightFactor: 0.53,
-                child: _productDetailCard(),
-              ),
+      body: OrientationBuilder(
+        builder: (context,orientation){
+          return SafeArea(
+            child: Stack(
+              children: [
+                _productImage(orientation),
+                _appBar(),
+                Align(
+                  alignment:(orientation == Orientation.landscape)? Alignment.topRight: Alignment.bottomCenter,
+                  child: FractionallySizedBox(
+                    heightFactor:(orientation == Orientation.landscape)?null: 0.53,
+                    widthFactor: (orientation == Orientation.landscape)?0.68: null,
+                    child: _productDetailCard(orientation),
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }
@@ -61,29 +66,30 @@ class _ProductScreenState extends State<ProductScreen> {
     );
   }
 
-  Widget _productImage() {
+  Widget _productImage(Orientation orientation) {
     return Container(
-        width: double.infinity,
+        width:(orientation == Orientation.landscape)? MediaQuery.of(context).size.width/2.5: double.infinity,
         child: Image.asset(
           icProductDetail,
           fit: BoxFit.fill,
         ));
   }
 
-  Widget _productDetailCard() {
+  Widget _productDetailCard(Orientation orientation) {
     return SizedBox.expand(
       child: DraggableScrollableSheet(
         initialChildSize: 1,
         builder: (context, scrollController) {
           return Container(
+            margin:  (orientation == Orientation.landscape)?EdgeInsets.only(top:45.0 ):null,
             padding: EdgeInsets.symmetric(horizontal: 25),
             width: double.infinity,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40)),
+              borderRadius: (orientation == Orientation.landscape)?BorderRadius.only(topLeft: Radius.circular(40), bottomLeft: Radius.circular(40)):BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40)),
               color: white,
             ),
             child: SingleChildScrollView(
-              controller: scrollController,
+              controller: (orientation == Orientation.landscape)?null: scrollController,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
