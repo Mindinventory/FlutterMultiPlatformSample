@@ -18,4 +18,11 @@ const icProductDetailImage1= 'assets/images/ic_product_detail_image_1.png';
 const icProductDetailImage2= 'assets/images/ic_product_detail_image_2.png';
 const icProductDetailImage3= 'assets/images/ic_product_detail_image_3.png';
 const icRatings= 'assets/images/ic_ratings.png';
+const icBlackBackArrowRound= 'assets/images/ic_black_back_arrow_round.png';
+const icCatProduct1 = 'assets/images/ic_cat_prod_1.png';
+const icCatProduct2 = 'assets/images/ic_cat_prod_2.png';
+const icCatProduct3 = 'assets/images/ic_cat_prod_3.png';
+const icCatProduct4 = 'assets/images/ic_cat_prod_4.png';
+const icCatProduct5 = 'assets/images/ic_cat_prod_5.png';
+const icCatProduct6 = 'assets/images/ic_cat_prod_6.png';
 

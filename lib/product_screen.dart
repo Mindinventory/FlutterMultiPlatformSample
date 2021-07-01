@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_multiplatform_sample/category_screen.dart';
 import 'package:flutter_multiplatform_sample/utils/dimens.dart';
 import 'package:flutter_multiplatform_sample/utils/images.dart';
 import 'package:flutter_multiplatform_sample/widget/cream_small_text.dart';
@@ -20,17 +21,17 @@ class _ProductScreenState extends State<ProductScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: OrientationBuilder(
-        builder: (context,orientation){
+        builder: (context, orientation) {
           return SafeArea(
             child: Stack(
               children: [
                 _productImage(orientation),
                 _appBar(),
                 Align(
-                  alignment:(orientation == Orientation.landscape)? Alignment.topRight: Alignment.bottomCenter,
+                  alignment: (orientation == Orientation.landscape) ? Alignment.topRight : Alignment.bottomCenter,
                   child: FractionallySizedBox(
-                    heightFactor:(orientation == Orientation.landscape)?null: 0.53,
-                    widthFactor: (orientation == Orientation.landscape)?0.68: null,
+                    heightFactor: (orientation == Orientation.landscape) ? null : 0.53,
+                    widthFactor: (orientation == Orientation.landscape) ? 0.68 : null,
                     child: _productDetailCard(orientation),
                   ),
                 ),
@@ -68,7 +69,7 @@ class _ProductScreenState extends State<ProductScreen> {
 
   Widget _productImage(Orientation orientation) {
     return Container(
-        width:(orientation == Orientation.landscape)? MediaQuery.of(context).size.width/2.5: double.infinity,
+        width: (orientation == Orientation.landscape) ? MediaQuery.of(context).size.width / 2.5 : double.infinity,
         child: Image.asset(
           icProductDetail,
           fit: BoxFit.fill,
@@ -81,15 +82,15 @@ class _ProductScreenState extends State<ProductScreen> {
         initialChildSize: 1,
         builder: (context, scrollController) {
           return Container(
-            margin:  (orientation == Orientation.landscape)?EdgeInsets.only(top:45.0 ):null,
+            margin: (orientation == Orientation.landscape) ? EdgeInsets.only(top: 45.0) : null,
             padding: EdgeInsets.symmetric(horizontal: 25),
             width: double.infinity,
             decoration: BoxDecoration(
-              borderRadius: (orientation == Orientation.landscape)?BorderRadius.only(topLeft: Radius.circular(40), bottomLeft: Radius.circular(40)):BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40)),
+              borderRadius: (orientation == Orientation.landscape) ? BorderRadius.only(topLeft: Radius.circular(40), bottomLeft: Radius.circular(40)) : BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40)),
               color: white,
             ),
             child: SingleChildScrollView(
-              controller: (orientation == Orientation.landscape)?null: scrollController,
+              controller: (orientation == Orientation.landscape) ? null : scrollController,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -239,30 +240,35 @@ class _ProductScreenState extends State<ProductScreen> {
         ],
         color: white,
       ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(15.0),
-        child: Container(
-          width: double.infinity,
-          height: 60,
-          color: subtitleTextColor,
-          padding: EdgeInsets.symmetric(horizontal: 5.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                icAddToCart,
-                height: 20,
-              ),
-              SizedBox(
-                width: 10.0,
-              ),
-              TitleText(
-                label: 'Add to cart',
-                fontSize: fontLarger,
-                fontColor: white,
-                fontWeight: fontWeightRegular,
-              )
-            ],
+      child: InkWell(
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => CategoryScreen()));
+        },
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(15.0),
+          child: Container(
+            width: double.infinity,
+            height: 60,
+            color: subtitleTextColor,
+            padding: EdgeInsets.symmetric(horizontal: 5.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  icAddToCart,
+                  height: 20,
+                ),
+                SizedBox(
+                  width: 10.0,
+                ),
+                TitleText(
+                  label: 'Add to cart',
+                  fontSize: fontLarger,
+                  fontColor: white,
+                  fontWeight: fontWeightRegular,
+                )
+              ],
+            ),
           ),
         ),
       ),
