@@ -4,6 +4,7 @@ import 'package:flutter_multiplatform_sample/utils/dimens.dart';
 import 'package:flutter_multiplatform_sample/utils/images.dart';
 import 'package:flutter_multiplatform_sample/widget/cream_small_text.dart';
 import 'package:flutter_multiplatform_sample/widget/cream_title_text.dart';
+import 'package:flutter_multiplatform_sample/widget/frosted_like_button.dart';
 import 'package:flutter_multiplatform_sample/widget/hint_text.dart';
 import 'package:flutter_multiplatform_sample/widget/title_text.dart';
 
@@ -58,10 +59,7 @@ class _ProductScreenState extends State<ProductScreen> {
               height: 20.0,
             ),
           ),
-          Image.asset(
-            icLike,
-            height: 35.0,
-          ),
+          FrostedLikeButton(),
         ],
       ),
     );

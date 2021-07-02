@@ -1,8 +1,12 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_multiplatform_sample/utils/color_utils.dart';
 import 'package:flutter_multiplatform_sample/utils/dimens.dart';
 import 'package:flutter_multiplatform_sample/utils/images.dart';
 import 'package:flutter_multiplatform_sample/widget/cream_small_text.dart';
 import 'package:flutter_multiplatform_sample/widget/cream_title_text.dart';
+import 'package:flutter_multiplatform_sample/widget/frosted_like_button.dart';
 import 'package:flutter_multiplatform_sample/widget/title_text.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -43,6 +47,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: homeScreenBackground,
       body: OrientationBuilder(
         builder: (context, orientation) {
           return SafeArea(
@@ -145,32 +150,36 @@ class _CategoryScreenState extends State<CategoryScreen> {
   }
 
   Widget _catFilteredItem(String icon, String description) {
-    return Row(
-      children: [
-        Container(
-          height: 50,
-          width: 50,
-          child: CircleAvatar(
-            child: Container(
-              child: ClipOval(
-                child: Image.asset(
-                  icon,
-                  fit: BoxFit.cover,
+    return Container(
+      decoration: BoxDecoration(color: searchBarBackColor, borderRadius: BorderRadius.circular(30.0)),
+      margin: EdgeInsets.symmetric(horizontal: 10),
+      child: Row(
+        children: [
+          Container(
+            height: 50,
+            width: 50,
+            child: CircleAvatar(
+              child: Container(
+                child: ClipOval(
+                  child: Image.asset(
+                    icon,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
           ),
-        ),
-        SizedBox(
-          width: 8.0,
-        ),
-        TitleText(
-          label: description,
-        ),
-        SizedBox(
-          width: 50,
-        )
-      ],
+          SizedBox(
+            width: 8.0,
+          ),
+          TitleText(
+            label: description,
+          ),
+          SizedBox(
+            width: 50,
+          )
+        ],
+      ),
     );
   }
 
@@ -178,7 +187,9 @@ class _CategoryScreenState extends State<CategoryScreen> {
     var _staggeredTiles = _getStaggeredTiles(orientation);
     return Expanded(
       child: Container(
-        margin: EdgeInsets.only(top: 15.0, right: 15.0, left: 15.0),
+        decoration: BoxDecoration(color: categorySectionBackground, borderRadius: BorderRadius.only(topLeft: Radius.circular(40.0), topRight: Radius.circular(40.0))),
+        padding: EdgeInsets.only(top: 20.0, right: 20.0, left: 20.0),
+        margin: EdgeInsets.only(top: 15.0),
         child: StaggeredGridView.countBuilder(
           staggeredTileBuilder: (index) {
             return _staggeredTiles[index];
@@ -207,7 +218,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                             ),
                           ),
                         ),
-                        Positioned(top: 15, right: 15, child: Image.asset(icLike, height: 30))
+                        Positioned(top: 15, right: 15, child: FrostedLikeButton())
                       ],
                     ),
                   ),
@@ -266,4 +277,5 @@ class _CategoryScreenState extends State<CategoryScreen> {
       StaggeredTile.count(1, 1.6),
     ];
   }
+
 }

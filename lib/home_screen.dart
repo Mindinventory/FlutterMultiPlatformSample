@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_multiplatform_sample/product_screen.dart';
+import 'package:flutter_multiplatform_sample/widget/frosted_like_button.dart';
+import 'package:flutter_multiplatform_sample/widget/frosted_like_button.dart';
+import 'package:flutter_multiplatform_sample/widget/frosted_lock_button.dart';
 
 import 'utils/color_utils.dart';
 import 'utils/dimens.dart';
@@ -22,6 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: homeScreenBackground,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -127,22 +131,26 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _searchBox() {
     return Padding(
       padding: EdgeInsets.only(left: 40.0, right: 40.0, top: 45),
-      child: Row(
-        children: [
-          Image.asset(
-            icSearch,
-            height: 20,
-          ),
-          SizedBox(width: 15),
-          HintText(
-            label: 'What are you looking for?',
-          ),
-          Spacer(),
-          Image.asset(
-            icSetting,
-            height: 18,
-          )
-        ],
+      child: Container(
+        padding: EdgeInsets.all(15),
+        decoration: BoxDecoration(color: searchBarBackColor, borderRadius: BorderRadius.circular(30.0)),
+        child: Row(
+          children: [
+            Image.asset(
+              icSearch,
+              height: 20,
+            ),
+            SizedBox(width: 15),
+            HintText(
+              label: 'What are you looking for?',
+            ),
+            Spacer(),
+            Image.asset(
+              icSetting,
+              height: 18,
+            )
+          ],
+        ),
       ),
     );
   }
@@ -167,7 +175,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _productList() {
     return Container(
-      color: Colors.white,
       margin: EdgeInsets.symmetric(vertical: 20),
       height: 280,
       child: ListView.builder(
@@ -182,7 +189,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _newArrivalList() {
     return Container(
-      color: Colors.white,
       margin: EdgeInsets.symmetric(vertical: 20),
       height: 130,
       child: ListView.builder(
@@ -201,6 +207,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Navigator.push(context, MaterialPageRoute(builder: (context) => ProductScreen()));
       },
       child: Container(
+        decoration: BoxDecoration(color: white, borderRadius: BorderRadius.circular(30.0)),
         margin: EdgeInsets.symmetric(horizontal: 15),
         padding: EdgeInsets.all(10.0),
         width: 250,
@@ -230,7 +237,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _newArrivalItem() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 2),
+      decoration: BoxDecoration(color: white, borderRadius: BorderRadius.circular(20.0)),
+      margin: EdgeInsets.symmetric(horizontal: 10),
       padding: EdgeInsets.all(10.0),
       width: 350,
       child: Row(
@@ -292,15 +300,9 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.only(top: 8.0, right: 8.0),
             child: Column(
               children: [
-                Image.asset(
-                  icLike,
-                  width: 40,
-                ),
+                FrostedLikeButton(),
                 SizedBox(height: 10),
-                Image.asset(
-                  icLock,
-                  width: 40,
-                )
+                FrostedLockButton()
               ],
             ),
           ),
