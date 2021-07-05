@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_multiplatform_sample/product_screen.dart';
 import 'package:flutter_multiplatform_sample/widget/frosted_like_button.dart';
-import 'package:flutter_multiplatform_sample/widget/frosted_like_button.dart';
 import 'package:flutter_multiplatform_sample/widget/frosted_lock_button.dart';
 
 import 'utils/color_utils.dart';
@@ -245,7 +244,9 @@ class _HomeScreenState extends State<HomeScreen> {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           _productImage(),
+          SizedBox(width: 15),
           _newArrivalProductInfo(),
+          SizedBox(width: 10),
           Image.asset(
             icFab,
             width: 35,
@@ -299,11 +300,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Padding(
             padding: const EdgeInsets.only(top: 8.0, right: 8.0),
             child: Column(
-              children: [
-                FrostedLikeButton(),
-                SizedBox(height: 10),
-                FrostedLockButton()
-              ],
+              children: [FrostedLikeButton(), SizedBox(height: 10), FrostedLockButton()],
             ),
           ),
         )

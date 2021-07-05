@@ -17,6 +17,7 @@ class SubTitleText extends StatelessWidget {
         maxLines: maxLine,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(
+          fontFamily: 'AvertaSemibold',
           color: subtitleTextColor,
           fontSize: fontSmall,
           fontWeight: fontWeightSemiBold,

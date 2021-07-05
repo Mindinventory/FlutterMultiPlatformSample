@@ -6,8 +6,9 @@ import '../utils/dimens.dart';
 class HintText extends StatelessWidget {
   final String label;
   final int maxLine;
-final double fontSize;
-  HintText({this.label, this.maxLine = 1, this.fontSize=fontXSmall});
+  final double fontSize;
+
+  HintText({this.label, this.maxLine = 1, this.fontSize = fontXSmall});
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +17,7 @@ final double fontSize;
         label,
         maxLines: maxLine,
         overflow: TextOverflow.ellipsis,
-        style: TextStyle(
-          color: hintTextColor,
-          fontSize: fontSize,
-          fontWeight: fontWeightSemiBold,
-          letterSpacing: 0.28,
-          height: 1.5
-        ),
+        style: TextStyle(color: hintTextColor, fontFamily: 'AvertaSemibold', fontSize: fontSize, fontWeight: fontWeightSemiBold, letterSpacing: 0.28, height: 1.5),
       ),
     );
   }
