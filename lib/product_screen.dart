@@ -29,10 +29,12 @@ class _ProductScreenState extends State<ProductScreen> {
                 _productImage(orientation),
                 _appBar(),
                 Align(
-                  alignment: (orientation == Orientation.landscape) ? Alignment.topRight : Alignment.bottomCenter,
+                  alignment: Alignment.bottomCenter,
                   child: FractionallySizedBox(
-                    heightFactor: (orientation == Orientation.landscape) ? null : 0.53,
-                    widthFactor: (orientation == Orientation.landscape) ? 0.68 : null,
+                    heightFactor:
+                        (orientation == Orientation.landscape) ? null : 0.53,
+                    widthFactor:
+                        (orientation == Orientation.landscape) ? 0.68 : null,
                     child: _productDetailCard(orientation),
                   ),
                 ),
@@ -67,11 +69,15 @@ class _ProductScreenState extends State<ProductScreen> {
 
   Widget _productImage(Orientation orientation) {
     return Container(
-        width: (orientation == Orientation.landscape) ? MediaQuery.of(context).size.width / 2.5 : double.infinity,
+      height: double.infinity,
+      child: AspectRatio(
+        aspectRatio: 1 / 2,
         child: Image.asset(
           icProductDetail,
           fit: BoxFit.fill,
-        ));
+        ),
+      ),
+    );
   }
 
   Widget _productDetailCard(Orientation orientation) {
@@ -80,15 +86,20 @@ class _ProductScreenState extends State<ProductScreen> {
         initialChildSize: 1,
         builder: (context, scrollController) {
           return Container(
-            margin: (orientation == Orientation.landscape) ? EdgeInsets.only(top: 45.0) : null,
+            margin: (orientation == Orientation.landscape)
+                ? EdgeInsets.only(top: 60.0)
+                : null,
             padding: EdgeInsets.symmetric(horizontal: 25),
             width: double.infinity,
             decoration: BoxDecoration(
-              borderRadius: (orientation == Orientation.landscape) ? BorderRadius.only(topLeft: Radius.circular(40), bottomLeft: Radius.circular(40)) : BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40)),
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(40), topRight: Radius.circular(40)),
               color: white,
             ),
             child: SingleChildScrollView(
-              controller: (orientation == Orientation.landscape) ? null : scrollController,
+              controller: (orientation == Orientation.landscape)
+                  ? null
+                  : scrollController,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -140,7 +151,7 @@ class _ProductScreenState extends State<ProductScreen> {
             height: 15.0,
           ),
           SizedBox(width: 10),
-          CreamSmallText(label: '4.5(216 Review)')
+          CreamSmallText(label: '4.5 (216 Review)')
         ],
       ),
     );
@@ -150,7 +161,8 @@ class _ProductScreenState extends State<ProductScreen> {
     return Padding(
       padding: const EdgeInsets.only(top: 15.0),
       child: HintText(
-        label: 'Zara floral green high neck middle dress is highly popular among peoples. provided best material 100% cotton and it suitable for both classic and casual style.',
+        label:
+            'Zara floral green high neck middle dress is highly popular among peoples. provided best material 100% cotton and it suitable for both classic and casual style.',
         maxLine: 5,
         fontSize: fontSmall,
       ),
@@ -227,23 +239,14 @@ class _ProductScreenState extends State<ProductScreen> {
 
   Widget _addToCartButton(Orientation orientation) {
     return Container(
-      margin: EdgeInsets.only(top: 12),
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: white,
-            blurRadius: 45.0,
-            spreadRadius: 25.0,
-          ),
-        ],
-        color: white,
-      ),
+      margin: EdgeInsets.only(top: 20, bottom: 20),
       child: Center(
         child: FractionallySizedBox(
           widthFactor: (orientation == Orientation.landscape) ? 0.5 : 1,
           child: InkWell(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => CategoryScreen()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => CategoryScreen()));
             },
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15.0),

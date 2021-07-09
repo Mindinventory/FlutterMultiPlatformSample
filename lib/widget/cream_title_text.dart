@@ -12,15 +12,17 @@ class CreamTitleText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text(
-        label,
-        maxLines: maxLine,
-        overflow: TextOverflow.ellipsis,
-        style: TextStyle(
-          color: creamTitleTextColor,
-          fontSize: fontLarger,
-          fontWeight: fontWeightSemiBold,
-          letterSpacing: 0.28,
+      child: Flexible(
+        child: Text(
+          label,
+          maxLines: maxLine,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            color: creamTitleTextColor,
+            fontSize: fontLarger,
+            fontWeight: fontWeightSemiBold,
+            letterSpacing: 0.28,
+          ),
         ),
       ),
     );

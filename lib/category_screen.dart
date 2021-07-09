@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_multiplatform_sample/models/category_model.dart';
 import 'package:flutter_multiplatform_sample/utils/color_utils.dart';
 import 'package:flutter_multiplatform_sample/utils/dimens.dart';
 import 'package:flutter_multiplatform_sample/utils/images.dart';
@@ -15,33 +16,88 @@ class CategoryScreen extends StatefulWidget {
   _CategoryScreenState createState() => _CategoryScreenState();
 }
 
-class CatModel {
-  String image;
-  String catName;
-  String brandName;
-  String price;
-
-  CatModel({this.image, this.catName, this.brandName, this.price});
-}
-
 class _CategoryScreenState extends State<CategoryScreen> {
   List<CatModel> modelList = [
-    CatModel(image: icCatProduct3, brandName: 'Loose fit blazer', catName: 'ZARA', price: '\$899.99'),
-    CatModel(image: icCatProduct4, brandName: 'Open blazer', catName: 'VERMODA', price: '\$599.99'),
-    CatModel(image: icCatProduct5, brandName: 'Blue loose fit blazer', catName: 'AJIO', price: '\$299.99'),
-    CatModel(image: icCatProduct6, brandName: 'Open pink blazer', catName: 'VERMODA', price: '\$399.99'),
-    CatModel(image: icCatProduct3, brandName: 'Loose fit blazer', catName: 'ZARA', price: '\$899.99'),
-    CatModel(image: icCatProduct4, brandName: 'Open blazer', catName: 'VERMODA', price: '\$599.99'),
-    CatModel(image: icCatProduct5, brandName: 'Blue loose fit blazer', catName: 'AJIO', price: '\$299.99'),
-    CatModel(image: icCatProduct6, brandName: 'Open pink blazer', catName: 'VERMODA', price: '\$399.99'),
-    CatModel(image: icCatProduct3, brandName: 'Loose fit blazer', catName: 'ZARA', price: '\$899.99'),
-    CatModel(image: icCatProduct4, brandName: 'Open blazer', catName: 'VERMODA', price: '\$599.99'),
-    CatModel(image: icCatProduct5, brandName: 'Blue loose fit blazer', catName: 'AJIO', price: '\$299.99'),
-    CatModel(image: icCatProduct6, brandName: 'Open pink blazer', catName: 'VERMODA', price: '\$399.99'),
-    CatModel(image: icCatProduct3, brandName: 'Loose fit blazer', catName: 'ZARA', price: '\$899.99'),
-    CatModel(image: icCatProduct4, brandName: 'Open blazer', catName: 'VERMODA', price: '\$599.99'),
-    CatModel(image: icCatProduct5, brandName: 'Blue loose fit blazer', catName: 'AJIO', price: '\$299.99'),
-    CatModel(image: icCatProduct6, brandName: 'Open pink blazer', catName: 'VERMODA', price: '\$399.99'),
+    CatModel(
+        image: icCatProduct3,
+        brandName: 'Loose fit blazer',
+        catName: 'ZARA',
+        price: '\$899.99'),
+    CatModel(
+        image: icCatProduct4,
+        brandName: 'Open blazer',
+        catName: 'VERMODA',
+        price: '\$599.99'),
+    CatModel(
+        image: icCatProduct5,
+        brandName: 'Blue loose fit blazer',
+        catName: 'AJIO',
+        price: '\$299.99'),
+    CatModel(
+        image: icCatProduct6,
+        brandName: 'Open pink blazer',
+        catName: 'VERMODA',
+        price: '\$399.99'),
+    CatModel(
+        image: icCatProduct3,
+        brandName: 'Loose fit blazer',
+        catName: 'ZARA',
+        price: '\$899.99'),
+    CatModel(
+        image: icCatProduct4,
+        brandName: 'Open blazer',
+        catName: 'VERMODA',
+        price: '\$599.99'),
+    CatModel(
+        image: icCatProduct5,
+        brandName: 'Blue loose fit blazer',
+        catName: 'AJIO',
+        price: '\$299.99'),
+    CatModel(
+        image: icCatProduct6,
+        brandName: 'Open pink blazer',
+        catName: 'VERMODA',
+        price: '\$399.99'),
+    CatModel(
+        image: icCatProduct3,
+        brandName: 'Loose fit blazer',
+        catName: 'ZARA',
+        price: '\$899.99'),
+    CatModel(
+        image: icCatProduct4,
+        brandName: 'Open blazer',
+        catName: 'VERMODA',
+        price: '\$599.99'),
+    CatModel(
+        image: icCatProduct5,
+        brandName: 'Blue loose fit blazer',
+        catName: 'AJIO',
+        price: '\$299.99'),
+    CatModel(
+        image: icCatProduct6,
+        brandName: 'Open pink blazer',
+        catName: 'VERMODA',
+        price: '\$399.99'),
+    CatModel(
+        image: icCatProduct3,
+        brandName: 'Loose fit blazer',
+        catName: 'ZARA',
+        price: '\$899.99'),
+    CatModel(
+        image: icCatProduct4,
+        brandName: 'Open blazer',
+        catName: 'VERMODA',
+        price: '\$599.99'),
+    CatModel(
+        image: icCatProduct5,
+        brandName: 'Blue loose fit blazer',
+        catName: 'AJIO',
+        price: '\$299.99'),
+    CatModel(
+        image: icCatProduct6,
+        brandName: 'Open pink blazer',
+        catName: 'VERMODA',
+        price: '\$399.99'),
   ];
 
   @override
@@ -126,7 +182,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           CreamTitleText(
-            label: 'Oversize \nand Loose fit blazer',
+            label: 'Oversize and Loose fit blazer',
             maxLine: 2,
           ),
           TitleText(
@@ -144,14 +200,18 @@ class _CategoryScreenState extends State<CategoryScreen> {
       margin: const EdgeInsets.symmetric(horizontal: 15),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
-        children: [_catFilteredItem(icCatProduct1, 'Oversize'), _catFilteredItem(icCatProduct2, 'Loos fit')],
+        children: [
+          _catFilteredItem(icCatProduct1, 'Oversize'),
+          _catFilteredItem(icCatProduct2, 'Loose fit')
+        ],
       ),
     );
   }
 
   Widget _catFilteredItem(String icon, String description) {
     return Container(
-      decoration: BoxDecoration(color: searchBarBackColor, borderRadius: BorderRadius.circular(30.0)),
+      decoration: BoxDecoration(
+          color: searchBarBackColor, borderRadius: BorderRadius.circular(30.0)),
       margin: EdgeInsets.symmetric(horizontal: 10),
       child: Row(
         children: [
@@ -176,7 +236,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
             label: description,
           ),
           SizedBox(
-            width: 50,
+            width: 32,
           )
         ],
       ),
@@ -187,7 +247,11 @@ class _CategoryScreenState extends State<CategoryScreen> {
     var _staggeredTiles = _getStaggeredTiles(orientation);
     return Expanded(
       child: Container(
-        decoration: BoxDecoration(color: categorySectionBackground, borderRadius: BorderRadius.only(topLeft: Radius.circular(40.0), topRight: Radius.circular(40.0))),
+        decoration: BoxDecoration(
+            color: categorySectionBackground,
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(40.0),
+                topRight: Radius.circular(40.0))),
         padding: EdgeInsets.only(top: 20.0, right: 20.0, left: 20.0),
         margin: EdgeInsets.only(top: 15.0),
         child: StaggeredGridView.countBuilder(
@@ -200,7 +264,18 @@ class _CategoryScreenState extends State<CategoryScreen> {
           itemCount: modelList.length,
           itemBuilder: (context, index) {
             return Container(
-              decoration: BoxDecoration(color: Colors.transparent, borderRadius: BorderRadius.all(Radius.circular(15))),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+                boxShadow: [
+                  BoxShadow(
+                    color: blurEffectShadowColor.withOpacity(0.5),
+                    blurRadius: 5.0,
+                    spreadRadius: 0.5,
+                  ),
+                ],
+              ),
+              padding: EdgeInsets.all(10.0),
               child: Column(
                 children: [
                   Expanded(
@@ -218,7 +293,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
                             ),
                           ),
                         ),
-                        Positioned(top: 15, right: 15, child: FrostedLikeButton())
+                        Positioned(
+                            top: 15, right: 15, child: FrostedLikeButton())
                       ],
                     ),
                   ),
@@ -277,5 +353,4 @@ class _CategoryScreenState extends State<CategoryScreen> {
       StaggeredTile.count(1, 1.6),
     ];
   }
-
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_multiplatform_sample/models/product_model.dart';
 import 'package:flutter_multiplatform_sample/product_screen.dart';
 import 'package:flutter_multiplatform_sample/widget/frosted_like_button.dart';
 import 'package:flutter_multiplatform_sample/widget/frosted_lock_button.dart';
@@ -21,6 +22,122 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  List<ProductModel> popularProductList = [
+    ProductModel(
+        image: icProduct1,
+        brandName: 'VERMODA',
+        productName: 'High neck middle dress',
+        price: '\$899.99'),
+    ProductModel(
+        image: icCatProduct1,
+        brandName: 'ZARA',
+        productName: 'Floral green dress',
+        price: '\$599.99'),
+    ProductModel(
+        image: icProduct1,
+        brandName: 'VERMODA',
+        productName: 'High neck middle dress',
+        price: '\$899.99'),
+    ProductModel(
+        image: icCatProduct1,
+        brandName: 'ZARA',
+        productName: 'Floral green dress',
+        price: '\$599.99'),
+    ProductModel(
+        image: icProduct1,
+        brandName: 'VERMODA',
+        productName: 'High neck middle dress',
+        price: '\$899.99'),
+    ProductModel(
+        image: icCatProduct1,
+        brandName: 'ZARA',
+        productName: 'Floral green dress',
+        price: '\$599.99'),
+    ProductModel(
+        image: icProduct1,
+        brandName: 'VERMODA',
+        productName: 'High neck middle dress',
+        price: '\$899.99'),
+    ProductModel(
+        image: icCatProduct1,
+        brandName: 'ZARA',
+        productName: 'Floral green dress',
+        price: '\$599.99'),
+    ProductModel(
+        image: icProduct1,
+        brandName: 'VERMODA',
+        productName: 'High neck middle dress',
+        price: '\$899.99'),
+    ProductModel(
+        image: icCatProduct1,
+        brandName: 'ZARA',
+        productName: 'Floral green dress',
+        price: '\$599.99'),
+  ];
+
+  List<ProductModel> newArrivalList = [
+    ProductModel(
+        image: icProduct2,
+        brandName: 'VERMODA',
+        productName: 'Floral green dress',
+        price: '\$899.99',
+        discountString: 'Save 30% on this order'),
+    ProductModel(
+        image: icCatProduct2,
+        brandName: 'ZARA',
+        productName: 'Loose fit blazer',
+        price: '\$599.99',
+        discountString: 'Save 10% on this order'),
+    ProductModel(
+        image: icProduct2,
+        brandName: 'VERMODA',
+        productName: 'Floral green dress',
+        price: '\$899.99',
+        discountString: 'Save 30% on this order'),
+    ProductModel(
+        image: icCatProduct2,
+        brandName: 'ZARA',
+        productName: 'Loose fit blazer',
+        price: '\$599.99',
+        discountString: 'Save 10% on this order'),
+    ProductModel(
+        image: icProduct2,
+        brandName: 'VERMODA',
+        productName: 'Floral green dress',
+        price: '\$899.99',
+        discountString: 'Save 30% on this order'),
+    ProductModel(
+        image: icCatProduct2,
+        brandName: 'ZARA',
+        productName: 'Loose fit blazer',
+        price: '\$599.99',
+        discountString: 'Save 10% on this order'),
+    ProductModel(
+        image: icProduct2,
+        brandName: 'VERMODA',
+        productName: 'Floral green dress',
+        price: '\$899.99',
+        discountString: 'Save 30% on this order'),
+    ProductModel(
+        image: icCatProduct2,
+        brandName: 'ZARA',
+        productName: 'Loose fit blazer',
+        price: '\$599.99',
+        discountString: 'Save 10% on this order'),
+    ProductModel(
+        image: icProduct2,
+        brandName: 'VERMODA',
+        productName: 'Floral green dress',
+        price: '\$899.99',
+        discountString: 'Save 30% on this order'),
+    ProductModel(
+        image: icCatProduct2,
+        brandName: 'ZARA',
+        productName: 'Loose fit blazer',
+        price: '\$599.99',
+        discountString: 'Save 10% on this order'),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,7 +171,8 @@ class _HomeScreenState extends State<HomeScreen> {
       margin: EdgeInsets.only(left: 15.0, top: 15),
       width: 150.0,
       height: 40.0,
-      decoration: BoxDecoration(color: profileInfoColor, borderRadius: BorderRadius.circular(20)),
+      decoration: BoxDecoration(
+          color: profileInfoColor, borderRadius: BorderRadius.circular(20)),
       child: Row(
         children: [
           Container(
@@ -119,7 +237,7 @@ class _HomeScreenState extends State<HomeScreen> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           CreamTitleText(
-            label: 'Find Your collection for\n2021',
+            label: 'Find Your collection for 2021',
             maxLine: 2,
           ),
         ],
@@ -129,24 +247,26 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _searchBox() {
     return Padding(
-      padding: EdgeInsets.only(left: 40.0, right: 40.0, top: 45),
+      padding: EdgeInsets.only(left: 15.0, right: 15.0, top: 45),
       child: Container(
-        padding: EdgeInsets.all(15),
-        decoration: BoxDecoration(color: searchBarBackColor, borderRadius: BorderRadius.circular(30.0)),
+        padding: EdgeInsets.all(20),
+        decoration: BoxDecoration(
+            color: searchBarBackColor,
+            borderRadius: BorderRadius.circular(30.0)),
         child: Row(
           children: [
             Image.asset(
               icSearch,
               height: 20,
             ),
-            SizedBox(width: 15),
+            SizedBox(width: 14),
             HintText(
               label: 'What are you looking for?',
             ),
             Spacer(),
             Image.asset(
               icSetting,
-              height: 18,
+              height: 20,
             )
           ],
         ),
@@ -175,12 +295,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _productList() {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 20),
-      height: 280,
+      height: 300,
       child: ListView.builder(
-        itemCount: 10,
+        itemCount: popularProductList.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, i) {
-          return _productItem();
+          return _productItem(popularProductList[i]);
         },
       ),
     );
@@ -191,107 +311,136 @@ class _HomeScreenState extends State<HomeScreen> {
       margin: EdgeInsets.symmetric(vertical: 20),
       height: 130,
       child: ListView.builder(
-        itemCount: 10,
+        itemCount: newArrivalList.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, i) {
-          return _newArrivalItem();
+          return _newArrivalItem(newArrivalList[i]);
         },
       ),
     );
   }
 
-  Widget _productItem() {
-    return InkWell(
+  Widget _productItem(ProductModel productModel) {
+    return GestureDetector(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => ProductScreen()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => ProductScreen()));
       },
-      child: Container(
-        decoration: BoxDecoration(color: white, borderRadius: BorderRadius.circular(30.0)),
-        margin: EdgeInsets.symmetric(horizontal: 15),
-        padding: EdgeInsets.all(10.0),
-        width: 250,
-        child: Column(
-          children: [
-            _productImageWithLikeButton(),
-            Padding(
-              padding: const EdgeInsets.only(top: 8.0),
-              child: TitleText(label: 'High neck middle dress'),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 5.0),
-              child: CreamSmallText(label: 'VEROMODA'),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 5.0),
-              child: TitleText(
-                label: '\$299.99',
-                fontWeight: fontWeightExtraBold,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 5),
+        child: Container(
+          decoration: BoxDecoration(
+            color: white,
+            borderRadius: BorderRadius.circular(30.0),
+            boxShadow: [
+              BoxShadow(
+                color: blurEffectShadowColor.withOpacity(0.5),
+                blurRadius: 5.0,
+                spreadRadius: 0.5,
               ),
+            ],
+          ),
+          margin: EdgeInsets.only(left: 15),
+          padding: EdgeInsets.all(10.0),
+          width: 250,
+          child: Column(
+            children: [
+              _productImageWithLikeButton(productModel.image),
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: TitleText(label: productModel.productName),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 5.0),
+                child: CreamSmallText(label: productModel.brandName),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 5.0),
+                child: TitleText(
+                  label: productModel.price,
+                  fontWeight: fontWeightExtraBold,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _newArrivalItem(ProductModel productModel) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5),
+      child: Container(
+        decoration: BoxDecoration(
+          color: white,
+          borderRadius: BorderRadius.circular(20.0),
+          boxShadow: [
+            BoxShadow(
+              color: blurEffectShadowColor.withOpacity(0.5),
+              blurRadius: 5.0,
+              spreadRadius: 0.5,
             ),
+          ],
+        ),
+        margin: EdgeInsets.only(left: 15),
+        padding: EdgeInsets.all(10.0),
+        width: 330,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            _productImage(productModel.image),
+            SizedBox(width: 10),
+            _newArrivalProductInfo(productModel),
+            SizedBox(width: 20),
+            Image.asset(
+              icFab,
+              width: 35,
+            )
           ],
         ),
       ),
     );
   }
 
-  Widget _newArrivalItem() {
-    return Container(
-      decoration: BoxDecoration(color: white, borderRadius: BorderRadius.circular(20.0)),
-      margin: EdgeInsets.symmetric(horizontal: 10),
-      padding: EdgeInsets.all(10.0),
-      width: 350,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          _productImage(),
-          SizedBox(width: 15),
-          _newArrivalProductInfo(),
-          SizedBox(width: 10),
-          Image.asset(
-            icFab,
-            width: 35,
-          )
-        ],
-      ),
-    );
-  }
-
-  Column _newArrivalProductInfo() {
+  Column _newArrivalProductInfo(ProductModel productModel) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
           padding: const EdgeInsets.only(top: 8.0),
-          child: TitleText(label: 'High neck middle dress'),
+          child: TitleText(label: productModel.productName),
         ),
         Padding(
           padding: const EdgeInsets.only(top: 8.0),
-          child: CreamSmallText(label: 'ZARA'),
+          child: CreamSmallText(label: productModel.brandName),
         ),
         Padding(
           padding: const EdgeInsets.only(top: 10.0),
           child: TitleText(
-            label: '\$499',
+            label: productModel.price,
             fontWeight: fontWeightExtraBold,
           ),
         ),
         Padding(
           padding: const EdgeInsets.only(top: 8.0),
-          child: CreamSmallText(label: 'Save 10% on this order'),
+          child: CreamSmallText(label: productModel.discountString),
         ),
       ],
     );
   }
 
-  Widget _productImageWithLikeButton() {
+  Widget _productImageWithLikeButton(String image) {
     return Stack(
       children: [
         Container(
           child: ClipRRect(
             borderRadius: BorderRadius.circular(30.0),
             child: Image.asset(
-              icProduct1,
+              image,
               height: 190,
+              width: 250,
+              fit: BoxFit.cover,
             ),
           ),
         ),
@@ -300,7 +449,11 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Padding(
             padding: const EdgeInsets.only(top: 8.0, right: 8.0),
             child: Column(
-              children: [FrostedLikeButton(), SizedBox(height: 10), FrostedLockButton()],
+              children: [
+                FrostedLikeButton(),
+                SizedBox(height: 10),
+                FrostedLockButton()
+              ],
             ),
           ),
         )
@@ -308,14 +461,14 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _productImage() {
+  Widget _productImage(String image) {
     return Container(
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20.0),
         child: Container(
           color: productImageBackColor,
           child: Image.asset(
-            icProduct2,
+            image,
             height: 190,
           ),
         ),

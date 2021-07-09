@@ -10,11 +10,7 @@ const Color productImageBackColor = Color(0xFFE8F3F0);
 const Color white = Color(0xFFFFFFFF);
 const Color productDetailImageBackColor = Color(0xFF5F6A6B);
 const Color searchBarBackColor = Color(0xFFF7F7F7);
-const Color homeScreenBackground= Color(0xFFFFFFFF);
-const Color categorySectionBackground= Color(0xFFF6F1E9);
-const Color frostedBackColor= Color(0xFFD6D6D6);
-
-
-
-
-
+const Color homeScreenBackground = Color(0xFFFFFFFF);
+const Color categorySectionBackground = Color(0xFFF6F1E9);
+const Color frostedBackColor = Color(0xFFD6D6D6);
+const Color blurEffectShadowColor = Color(0xFFEDEDED);
