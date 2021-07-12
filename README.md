@@ -1,4 +1,4 @@
-# Flutter MultiPlatform
+# Flutter Multi-platform sample
 
 Flutter Multi-platform allows developers to unleash their app to run on the wide variety of different platforms with little or no change.
 
